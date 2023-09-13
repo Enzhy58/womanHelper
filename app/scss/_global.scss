@@ -1,0 +1,278 @@
+body {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.3;
+  background-color: $white;
+  color: $black;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.page-section {
+  margin: 80px 0;
+}
+
+.title {
+  font-family: 'Caveat', cursive;
+  color: $accent;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+  text-align: left;
+  text-shadow: 1px 1px $black, 1px -1px $black, -1px 1px $black, -1px -1px $black, 3px 3px 6px rgba($black, .5);
+  margin-bottom: 40px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+
+  &__list {
+    display: flex;
+    font-family: 'RobotoCondensed';
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-left: auto;
+    margin-right: 80px;
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
+
+  }
+
+  &__link {
+
+    &:hover {
+      border-bottom: 2px solid $accent;
+    }
+
+  }
+
+}
+
+.contacts {
+  display: flex;
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+  }
+
+  &__img {
+    width: 30px;
+    height: 30px;
+    transition: fill 0.3s;
+
+    &:hover {
+      fill: $accent;
+    }
+
+  }
+
+}
+
+.btn {
+  display: block;
+  color: $dark;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: $silver;
+  border: 2px solid $brown;
+  border-radius: 0.75em;
+  width: 250px;
+  padding: 10px;
+  text-align: center;
+  transform-style: preserve-3d;
+  position: relative;
+  transition: all 0.3s;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $pink;
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px $brown;
+    transition: all 0.3s;
+    transform: translate3d(0, 0.75em, -1em);
+  }
+
+  &:hover {
+    background-color: $light-pink;
+    transform: translate(0, 0.25em);
+  }
+
+  &:hover::before {
+    box-shadow: 0 0 0 2px $brown;
+    transform: translate(0, 0.5em, -1em);
+  }
+
+  &:active {
+    background-color: $light-pink;
+    transform: translate(0em, 0.75em);
+  }
+
+  &:active::before {
+    box-shadow: 0 0 0 2px $brown;
+    transform: translate3d(0, 0, -1em);
+  }
+
+}
+
+
+@media (max-width: 992px) {
+
+  .title {
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 880px) {
+
+  .wrapper__fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  .header {
+
+    .contacts {
+      margin-left: auto;
+      margin-right: 15px;
+    }
+
+  }
+
+  .menu {
+
+    &__list {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      background-color: $light-pink;
+      padding: 20px;
+      transform: translateY(-200%);
+      transition: all 0.3s;
+
+      &.menu__list--active {
+        transform: translateY(0);
+        transition: all 0.3s;
+      }
+
+    }
+
+    &__item {
+
+      &:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+    }
+
+    &__btn {
+      width: 30px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      order: 3;
+      position: relative;
+
+      span {
+        width: 100%;
+        height: 3px;
+        background-color: $black;
+      }
+
+      &::after,
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: $black;
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+      
+    }
+
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  .page-section {
+    margin: 50px 0;
+  }
+
+  .title {
+    font-size: 80px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .title {
+    font-size: 64px;
+    line-height: 70px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+}
